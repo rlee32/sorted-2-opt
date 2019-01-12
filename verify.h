@@ -1,6 +1,5 @@
 #pragma once
 
-#include "DistanceTable.h"
 #include "Segment.h"
 #include "aliases.h"
 #include "constants.h"

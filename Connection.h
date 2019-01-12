@@ -11,7 +11,6 @@
 struct Connection
 {
     Connection() = default;
-    // for emplacement.
     Connection(primitives::point_id_t a, primitives::point_id_t b) : a(a), b(b) {}
 
     primitives::point_id_t a{0}; // first point.

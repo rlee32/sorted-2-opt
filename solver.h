@@ -6,6 +6,7 @@
 #include "Solution.h"
 #include "TourModifier.h"
 #include "aliases.h"
+#include "constants.h"
 #include "fileio/fileio.h"
 #include "primitives.h"
 #include "verify.h"
@@ -16,7 +17,7 @@
 
 namespace solver {
 
-inline Move first_improvement_sorted(const aliases::SortedSegments& segments, const DistanceTable& dt)
+inline Move first_improvement_sorted(const aliases::SortedSegments& segments, const DistanceCalculator& dt)
 {
     for (auto s1 = std::crbegin(segments); s1 != std::prev(std::crend(segments)); ++s1)
     {
@@ -48,7 +49,7 @@ inline Move first_improvement_sorted(const aliases::SortedSegments& segments, co
     return {};
 }
 
-inline Move first_improvement_random(const aliases::SortedSegments& segments, const DistanceTable& dt)
+inline Move first_improvement_random(const aliases::SortedSegments& segments, const DistanceCalculator& dt)
 {
     std::vector<Segment> random_access_segments;
     random_access_segments.assign(std::cbegin(segments), std::cend(segments));
@@ -85,10 +86,9 @@ inline Move first_improvement_random(const aliases::SortedSegments& segments, co
 
 inline Solution hill_climb(const std::vector<primitives::point_id_t>& ordered_points
     , aliases::SortedSegments& segments
-    , const DistanceTable& dt
+    , const DistanceCalculator& dt
     , const std::string save_file_prefix)
 {
-    constexpr int save_period{1};
     TourModifier tour_modifier(ordered_points);
     constexpr bool sorted_segment_order{false};
     auto move = (sorted_segment_order) ? first_improvement_sorted(segments, dt) : first_improvement_random(segments, dt);
@@ -96,7 +96,7 @@ inline Solution hill_climb(const std::vector<primitives::point_id_t>& ordered_po
     while (move.improvement > 0)
     {
         tour_modifier.move(move, segments);
-        const bool save = iteration % save_period == 0;
+        const bool save = iteration % constants::save_period == 0;
         if (save)
         {
             if (segments.size() != ordered_points.size())
