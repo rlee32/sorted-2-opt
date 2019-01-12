@@ -88,7 +88,7 @@ inline Solution hill_climb(const std::vector<primitives::point_id_t>& ordered_po
     , const DistanceTable& dt
     , const std::string save_file_prefix)
 {
-    constexpr int save_period{500};
+    constexpr int save_period{1};
     TourModifier tour_modifier(ordered_points);
     constexpr bool sorted_segment_order{false};
     auto move = (sorted_segment_order) ? first_improvement_sorted(segments, dt) : first_improvement_random(segments, dt);
