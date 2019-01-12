@@ -26,12 +26,12 @@ int main(int argc, const char** argv)
     const auto initial_tour = fileio::initial_tour(argc, argv, point_count);
     // Initialize distance table.
     DistanceTable dt(point_set.x(), point_set.y());
-    PointSequence point_sequence(initial_tour);
+    TourModifier tour_modifier(initial_tour);
     // Initialize sorted segments.
     aliases::SortedSegments segments;
     for (auto id : initial_tour)
     {
-        segments.emplace(id, point_sequence.next(id), dt);
+        segments.emplace(id, tour_modifier.next(id), dt);
     }
     std::cout << "Largest segment length: " << std::crbegin(segments)->length << std::endl;
     std::cout << "Smallest segment length: " << std::cbegin(segments)->length << std::endl;

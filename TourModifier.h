@@ -23,6 +23,7 @@ public:
     void initialize(const std::vector<primitives::point_id_t>& initial_tour);
     void move(const Move&, aliases::SortedSegments& segments);
     std::vector<primitives::point_id_t> current_tour() const;
+    primitives::point_id_t next(primitives::point_id_t i) const { return m_next[i]; }
 
 private:
     std::vector<Adjacents> m_adjacents;

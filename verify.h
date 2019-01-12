@@ -5,7 +5,6 @@
 #include "aliases.h"
 #include "constants.h"
 #include "primitives.h"
-#include "quadtree/QuadtreeNode.h"
 
 #include <iostream>
 #include <numeric> // accumulate
