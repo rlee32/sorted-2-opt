@@ -1,12 +1,12 @@
 #pragma once
 
 #include "Segment.h"
-#include "aliases.h"
 #include "constants.h"
 #include "primitives.h"
 
 #include <iostream>
 #include <numeric> // accumulate
+#include <vector>
 
 namespace verify {
 

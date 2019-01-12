@@ -5,7 +5,6 @@
 #include "Segment.h"
 #include "Solution.h"
 #include "TourModifier.h"
-#include "aliases.h"
 #include "constants.h"
 #include "fileio/fileio.h"
 #include "primitives.h"

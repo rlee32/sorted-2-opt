@@ -9,7 +9,6 @@
 #include "Move.h"
 #include "Connection.h"
 #include "Segment.h"
-#include "aliases.h"
 #include "constants.h"
 #include "primitives.h"
 
