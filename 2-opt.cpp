@@ -1,4 +1,4 @@
-#include "DistanceTable.h"
+#include "DistanceCalculator.h"
 #include "debug.h"
 #include "fileio/PointSet.h"
 #include "fileio/fileio.h"

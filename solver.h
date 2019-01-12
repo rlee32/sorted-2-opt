@@ -1,6 +1,6 @@
 #pragma once
 
-#include "DistanceTable.h"
+#include "DistanceCalculator.h"
 #include "Move.h"
 #include "Segment.h"
 #include "Solution.h"

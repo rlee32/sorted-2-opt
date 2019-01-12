@@ -4,7 +4,7 @@
 // A tour is made of a number of segments equal to the number of cities.
 
 #include "Connection.h"
-#include "DistanceTable.h"
+#include "DistanceCalculator.h"
 #include "primitives.h"
 
 #include <ostream>
