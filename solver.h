@@ -2,7 +2,6 @@
 
 #include "DistanceTable.h"
 #include "Move.h"
-#include "PointSequence.h"
 #include "Segment.h"
 #include "Solution.h"
 #include "TourModifier.h"

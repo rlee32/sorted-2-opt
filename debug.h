@@ -3,6 +3,7 @@
 #include "Connection.h"
 #include "primitives.h"
 
+#include <iostream>
 #include <set>
 #include <vector>
 
@@ -23,4 +24,4 @@ inline void check_connections(const std::vector<Connection>& connections)
     std::cout << "check complete.\n";
 }
 
-}
+} // namespace debug

@@ -1,4 +1,3 @@
-#include "PointSequence.h"
 #include "debug.h"
 #include "fileio/PointSet.h"
 #include "fileio/Tour.h"

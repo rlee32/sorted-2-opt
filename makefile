@@ -5,8 +5,7 @@ CXX_FLAGS += -O3 -ffast-math # "production" version.
 #CXX_FLAGS += -O0 -g # debug version.
 CXX_FLAGS += -I./ # include paths.
 
-SRCS = 2-opt.cpp PointSequence.cpp TourModifier.cpp \
-    fileio/PointSet.cpp fileio/Tour.cpp
+SRCS = 2-opt.cpp TourModifier.cpp fileio/PointSet.cpp fileio/Tour.cpp
 
 %.o: %.cpp; $(CXX) $(CXX_FLAGS) -o $@ -c $<
 
