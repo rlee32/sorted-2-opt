@@ -21,7 +21,7 @@ public:
     TourModifier(const std::vector<primitives::point_id_t>& initial_tour) { initialize(initial_tour); }
 
     void initialize(const std::vector<primitives::point_id_t>& initial_tour);
-    void move(const Move&, aliases::SortedSegments& segments);
+    void move(const Move&, Segment::SortedContainer& segments);
     std::vector<primitives::point_id_t> current_tour() const;
     primitives::point_id_t next(primitives::point_id_t i) const { return m_next[i]; }
 
@@ -32,7 +32,7 @@ private:
 
     void update_next();
     void reorder(const Move&);
-    void align_segments(aliases::SortedSegments&) const;
+    void align_segments(Segment::SortedContainer&) const;
 
     primitives::point_id_t get_other(primitives::point_id_t point, primitives::point_id_t adjacent) const;
     void create_adjacency(const Connection& c);

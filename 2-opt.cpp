@@ -1,4 +1,6 @@
 #include "DistanceCalculator.h"
+#include "TourModifier.h"
+#include "aliases.h"
 #include "debug.h"
 #include "fileio/PointSet.h"
 #include "fileio/fileio.h"
@@ -23,7 +25,7 @@ int main(int argc, const char** argv)
     DistanceCalculator dt(point_set.x(), point_set.y());
     TourModifier tour_modifier(initial_tour);
     // Initialize sorted segments.
-    aliases::SortedSegments segments;
+    Segment::SortedContainer segments;
     for (auto id : initial_tour)
     {
         segments.emplace(id, tour_modifier.next(id), dt);

@@ -33,7 +33,7 @@ std::vector<primitives::point_id_t> TourModifier::current_tour() const
     return points;
 }
 
-void TourModifier::move(const Move& move, aliases::SortedSegments& segments)
+void TourModifier::move(const Move& move, Segment::SortedContainer& segments)
 {
     reorder(move);
     update_next();
@@ -53,7 +53,7 @@ void TourModifier::move(const Move& move, aliases::SortedSegments& segments)
     align_segments(segments);
 }
 
-void TourModifier::align_segments(aliases::SortedSegments& segments) const
+void TourModifier::align_segments(Segment::SortedContainer& segments) const
 {
     // std::sets only use const iterators, as element values determine order.
     std::vector<Segment> deleted;

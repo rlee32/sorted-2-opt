@@ -8,6 +8,7 @@
 #include "primitives.h"
 
 #include <ostream>
+#include <set>
 
 struct Segment : Connection
 {
@@ -35,6 +36,9 @@ public:
                 : lhs.length < rhs.length;
         }
     };
+
+    // Must have stable iterators!
+    using SortedContainer = std::set<Segment, LengthComparator>;
 };
 
 inline std::ostream& operator<<(std::ostream& out, const Segment& s)

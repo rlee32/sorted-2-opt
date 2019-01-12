@@ -17,7 +17,7 @@
 
 namespace solver {
 
-inline Move first_improvement_sorted(const aliases::SortedSegments& segments, const DistanceCalculator& dt)
+inline Move first_improvement_sorted(const Segment::SortedContainer& segments, const DistanceCalculator& dt)
 {
     for (auto s1 = std::crbegin(segments); s1 != std::prev(std::crend(segments)); ++s1)
     {
@@ -49,7 +49,7 @@ inline Move first_improvement_sorted(const aliases::SortedSegments& segments, co
     return {};
 }
 
-inline Move first_improvement_random(const aliases::SortedSegments& segments, const DistanceCalculator& dt)
+inline Move first_improvement_random(const Segment::SortedContainer& segments, const DistanceCalculator& dt)
 {
     std::vector<Segment> random_access_segments;
     random_access_segments.assign(std::cbegin(segments), std::cend(segments));
@@ -85,7 +85,7 @@ inline Move first_improvement_random(const aliases::SortedSegments& segments, co
 }
 
 inline Solution hill_climb(const std::vector<primitives::point_id_t>& ordered_points
-    , aliases::SortedSegments& segments
+    , Segment::SortedContainer& segments
     , const DistanceCalculator& dt
     , const std::string save_file_prefix)
 {

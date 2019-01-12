@@ -10,7 +10,7 @@
 
 namespace verify {
 
-inline std::vector<primitives::point_id_t> reproduce_next(const aliases::SortedSegments& segments)
+inline std::vector<primitives::point_id_t> reproduce_next(const Segment::SortedContainer& segments)
 {
     std::vector<primitives::point_id_t> next(segments.size(), constants::invalid_point);
     for (const auto& s : segments)
@@ -34,7 +34,7 @@ inline std::vector<int> reproduce_visited(const std::vector<primitives::point_id
     return visited;
 }
 
-inline bool valid_cycle(const aliases::SortedSegments& segments)
+inline bool valid_cycle(const Segment::SortedContainer& segments)
 {
     for (const auto& s : segments)
     {
@@ -72,7 +72,7 @@ inline bool valid_cycle(const aliases::SortedSegments& segments)
     return true;
 }
 
-inline primitives::length_t tour_length(const aliases::SortedSegments& segments)
+inline primitives::length_t tour_length(const Segment::SortedContainer& segments)
 {
     auto segment_length = [](primitives::length_t sum, const Segment& s) { return sum + s.length; };
     return std::accumulate(std::cbegin(segments), std::cend(segments), 0, segment_length);
