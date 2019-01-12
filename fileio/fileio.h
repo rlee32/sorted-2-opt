@@ -5,6 +5,7 @@
 
 #include <fstream>
 #include <vector>
+#include <string>
 
 namespace fileio {
 

@@ -1,17 +1,11 @@
 #include "debug.h"
 #include "fileio/PointSet.h"
-#include "fileio/Tour.h"
 #include "fileio/fileio.h"
 #include "primitives.h"
 #include "solver.h"
 #include "utility.h"
 
-#include <algorithm>
-#include <array>
 #include <iostream>
-#include <iterator>
-#include <string>
-#include <vector>
 
 int main(int argc, const char** argv)
 {
