@@ -7,10 +7,7 @@
 #include "DistanceTable.h"
 #include "primitives.h"
 
-#include <algorithm> // min, max
-#include <cstdint>
 #include <ostream>
-#include <unordered_set>
 
 struct Segment : Connection
 {
@@ -29,8 +26,6 @@ public:
     primitives::length_t length{0};
     primitives::space_t xm{0}; // x-coordinate of segment midpoint.
     primitives::space_t ym{0}; // y-coordinate of segment midpoint.
-
-    using Container = std::unordered_set<Segment, Hash>;
 
     // For use in set.
     struct LengthComparator

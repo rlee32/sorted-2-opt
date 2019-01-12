@@ -18,3 +18,4 @@ Style notes:
 
 TODO:
 1. Check if output directory exists before writing out paths to file.
+

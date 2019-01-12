@@ -5,6 +5,8 @@
 #include "primitives.h"
 
 #include <algorithm> // min, max
+#include <cstdint>
+#include <unordered_set>
 
 struct Connection
 {
@@ -42,6 +44,8 @@ struct Connection
             return (static_cast<hash_t>(c.min()) << ShiftBits) + static_cast<hash_t>(c.max());
         }
     };
+
+    using Container = std::unordered_set<Connection, Hash>;
 };
 
 // For use in unordered_set.
