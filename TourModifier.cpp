@@ -37,10 +37,18 @@ void TourModifier::move(const Move& move, aliases::SortedSegments& segments)
 {
     reorder(move);
     update_next();
-    segments.erase(move.old_segments[0]);
-    segments.erase(move.old_segments[1]);
-    segments.insert(move.new_segments[0]);
-    segments.insert(move.new_segments[1]);
+    auto erase0 = segments.erase(move.old_segments[0]);
+    auto erase1 = segments.erase(move.old_segments[1]);
+    if (erase0 != 1 or erase1 != 1)
+    {
+        std::cout << __func__ << ": ERROR: segment erasure error! erase0, erase1: " << erase0 << ", " << erase1 << "\n";
+    }
+    const auto insert0 = segments.insert(move.new_segments[0]);
+    const auto insert1 = segments.insert(move.new_segments[1]);
+    if (not insert0.second or not insert1.second)
+    {
+        std::cout << __func__ << ": ERROR: segment insertion error! insert0, insert1: " << insert0.second << ", " << insert1.second << "\n";
+    }
     // align after adding / removing segments.
     align_segments(segments);
 }

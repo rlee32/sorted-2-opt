@@ -41,7 +41,8 @@ inline bool valid_cycle(const aliases::SortedSegments& segments)
     {
         if (s.a >= segments.size() or s.b >= segments.size())
         {
-            std::cout << __func__ << ": ERROR: invalid tour; invalid segment!\n";
+            std::cout << __func__ << ": ERROR: invalid tour; invalid segment! point ids: " << s.a << ", " << s.b << "\n";
+            std::cout << __func__ << ": ERROR: invalid tour; invalid segment! segment count: " << segments.size() << "\n";
             return false;
         }
     }

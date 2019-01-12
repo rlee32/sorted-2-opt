@@ -62,9 +62,15 @@ inline Solution hill_climb(const std::vector<primitives::point_id_t>& ordered_po
         const bool save = iteration % save_period == 0;
         if (save)
         {
+            if (segments.size() != ordered_points.size())
+            {
+                std::cout << __func__ << ": ERROR: tour has become invalid: invalid segment count; actual, expected: "
+                    << segments.size() << ", " << ordered_points.size() << std::endl;
+                break;
+            }
             if (not verify::valid_cycle(segments))
             {
-                std::cout << __func__ << ": ERROR: tour has become invalid!" << std::endl;
+                std::cout << __func__ << ": ERROR: tour has become invalid: invalid cycle.";
                 break;
             }
             auto length = verify::tour_length(segments);
