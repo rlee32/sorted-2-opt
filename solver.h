@@ -89,8 +89,7 @@ inline Solution hill_climb(const std::vector<primitives::point_id_t>& ordered_po
     , const std::string save_file_prefix)
 {
     TourModifier tour_modifier(ordered_points);
-    constexpr bool sorted_segment_order{false};
-    auto move = (sorted_segment_order) ? first_improvement_sorted(segments, dt) : first_improvement_random(segments, dt);
+    auto move = (constants::sorted_segment_order) ? first_improvement_sorted(segments, dt) : first_improvement_random(segments, dt);
     int iteration{1};
     while (move.improvement > 0)
     {
@@ -114,7 +113,7 @@ inline Solution hill_climb(const std::vector<primitives::point_id_t>& ordered_po
             fileio::write_ordered_points(tour_modifier.current_tour()
                 , "saves/" + save_file_prefix + "_" + std::to_string(length) + ".txt");
         }
-        move = (sorted_segment_order) ? first_improvement_sorted(segments, dt) : first_improvement_random(segments, dt);
+        move = (constants::sorted_segment_order) ? first_improvement_sorted(segments, dt) : first_improvement_random(segments, dt);
         ++iteration;
     }
     return {tour_modifier.current_tour(), verify::tour_length(segments)};

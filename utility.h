@@ -2,6 +2,8 @@
 
 // Miscellaneous functions that I do not know where else to put.
 
+#include <string>
+
 namespace utility {
 
 // Removes directories and extension from a file path.
