@@ -1,5 +1,6 @@
 This is meant to improve poor tours. Segments are sorted by size, and first-improvement 2-opt is run on the largest segments.
 Initially, the work complexity is probablistically O(n). But as the local optimum is reached, the runtime will approach O(n ^ 2).
+The initial segment sort is of course O(n * log(n)).
 
 This is intended to initialize tours for further optimization with fast-2-opt, which can be slow on poor tours (segments are less likely to placed in deep nodes).
 
