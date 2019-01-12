@@ -20,8 +20,6 @@ public:
     Segment(primitives::point_id_t a, primitives::point_id_t b, const DistanceTable& dt)
         : Segment(a, b, dt.compute_length(a, b), dt) {}
     Segment(const Connection& c, const DistanceTable& dt) : Segment(c.a, c.b, dt) {}
-    // temporary fix.
-    Segment(const Connection& c) : Connection(c) {}
 
     primitives::length_t length{0};
     primitives::space_t xm{0}; // x-coordinate of segment midpoint.
