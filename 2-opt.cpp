@@ -1,6 +1,5 @@
 #include "DistanceCalculator.h"
 #include "TourModifier.h"
-#include "debug.h"
 #include "fileio/PointSet.h"
 #include "fileio/fileio.h"
 #include "primitives.h"
