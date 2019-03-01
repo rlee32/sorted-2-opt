@@ -34,7 +34,6 @@ PointSet::PointSet(const char* file_path)
         std::exit(EXIT_SUCCESS);
     }
     // coordinates.
-    std::cout << point_count << std::endl;
     while (not file_stream.eof())
     {
         if (m_x.size() >= point_count)
@@ -45,7 +44,6 @@ PointSet::PointSet(const char* file_path)
         std::stringstream line_stream(line);
         primitives::point_id_t point_id{0};
         line_stream >> point_id;
-        std::cout << point_id << std::endl;
         if (point_id == m_x.size() + 1)
         {
             primitives::space_t value{0};
