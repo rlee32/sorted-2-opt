@@ -1,0 +1,15 @@
+NAME : box9.tour
+TYPE : TOUR
+DIMENSION : 9
+TOUR_SECTION
+1
+2
+7
+3
+4
+5
+6
+8
+9
+-1
+EOF
