@@ -39,14 +39,18 @@ with open(tour_file_path, "r") as f:
             break
     for line in f:
         line = line.strip()
-        if "EOF" in line or not line:
+        if "-1" in line or "EOF" in line or not line:
             break
         fields = line.strip().split()
-        tour.append((abs(int(fields[0]))))
+        tour.append((int(fields[0])))
 
 for i in range(len(tour) - 1):
     c = coordinates[tour[i] - 1]
     n = coordinates[tour[i + 1] - 1]
     plt.plot([c[0], n[0]], [c[1], n[1]], "b")
+c = coordinates[tour[-1] - 1]
+n = coordinates[tour[0] - 1]
+plt.plot([c[0], n[0]], [c[1], n[1]], "b")
+plt.axis("equal")
 
 plt.show()

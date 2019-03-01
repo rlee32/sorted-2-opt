@@ -4,6 +4,7 @@
 
 #include <primitives.h>
 
+#include <cstdlib> // exit, EXIT_SUCCESS
 #include <fstream>
 #include <iostream>
 #include <sstream>

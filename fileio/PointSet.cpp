@@ -8,8 +8,8 @@ PointSet::PointSet(const char* file_path)
     std::ifstream file_stream(file_path);
     if (not file_stream.is_open())
     {
-        std::cout << "ERROR: could not open file: " << file_path << std::endl;
-        return;
+        std::cout << "Could not open file: " << file_path << std::endl;
+        std::exit(EXIT_SUCCESS);
     }
     size_t point_count{0};
     // header.
@@ -30,10 +30,11 @@ PointSet::PointSet(const char* file_path)
     }
     if (point_count == 0)
     {
-        std::cout << "ERROR: could not read any points from the point set file." << std::endl;
-        return;
+        std::cout << "Could not read any points from the point set file." << std::endl;
+        std::exit(EXIT_SUCCESS);
     }
     // coordinates.
+    std::cout << point_count << std::endl;
     while (not file_stream.eof())
     {
         if (m_x.size() >= point_count)
@@ -44,6 +45,7 @@ PointSet::PointSet(const char* file_path)
         std::stringstream line_stream(line);
         primitives::point_id_t point_id{0};
         line_stream >> point_id;
+        std::cout << point_id << std::endl;
         if (point_id == m_x.size() + 1)
         {
             primitives::space_t value{0};
@@ -54,11 +56,12 @@ PointSet::PointSet(const char* file_path)
         }
         else
         {
-            std::cout << "ERROR: point id ("
+            std::cout << __func__ << ": error: point id ("
                 << point_id
-                << ")does not match number of currently read points ("
+                << ") does not match number of currently read points ("
                 << m_x.size()
                 << ")." << std::endl;
+            std::exit(EXIT_SUCCESS);
         }
     }
     std::cout << "Finished reading point set file.\n" << std::endl;
